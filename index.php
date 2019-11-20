@@ -34,19 +34,6 @@
                 }
                 ?>
                 <h2>Number of words in the file</h2>
-                <?php
-                if($text){
-                    $words = explode(' ', $text);
-                    $words_counter = count($words);
-                    echo $words_counter;
-                }else{
-                    echo "<p>Lack of file.</p>";
-                }if($text){
-
-                }else{
-                    echo "<p>Lack of file.</p>";
-                }
-                ?>
                 <h2>Number of punctuation marks in the file</h2>
                 <h2>Number of sentences in the file</h2>
                 <h2>Report on the use of letters A-Z</h2>
@@ -55,7 +42,7 @@
         </div>
     </div>
     <footer class="container-fluid">
-        <p>Project by Damian Krzemiński, Piotr Urban and ...</p>
+        <p>Project by Damian Krzemiński, Piotr Urban and Patryk Kaźmierczak</p>
     </footer>
 </body>
 </html>
