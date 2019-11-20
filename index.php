@@ -20,7 +20,33 @@
 
                 ?>
                 <h2>Number of letters in the file</h2>
+                <?php
+                $letter_counter = 0;
+                if($text){
+                    for($i = 0; $i < strlen($text); $i++){
+                       if(preg_match('/[a-z]/', $text[$i]) || preg_match('/[A-Z]/', $text[$i])){
+                           $letter_counter++;
+                    }
+                  }
+                    echo $letter_counter;
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }
+                ?>
                 <h2>Number of words in the file</h2>
+                <?php
+                if($text){
+                    $words = explode(' ', $text);
+                    $words_counter = count($words);
+                    echo $words_counter;
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }if($text){
+
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }
+                ?>
                 <h2>Number of punctuation marks in the file</h2>
                 <h2>Number of sentences in the file</h2>
                 <h2>Report on the use of letters A-Z</h2>
@@ -29,7 +55,7 @@
         </div>
     </div>
     <footer class="container-fluid">
-        <p>Project by Damian Krzemiński, Piotr Urban and Patryk Kaźmierczak</p>
+        <p>Project by Damian Krzemiński, Piotr Urban and ...</p>
     </footer>
 </body>
 </html>
