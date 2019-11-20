@@ -13,6 +13,12 @@
                 <h1>Project</h1>
 
                 <h2>Content of file</h2>
+                <?php
+
+                    $text = file_get_contents("https://s3.zylowski.net/public/input/4.txt?fbclid=IwAR1bA1GI3A8Qb12qWVo3ygfxm0gqaIhbhnKpkCEuxSYfFsGagcgR8n2CA4k");
+                    echo $text;
+
+                ?>
                 <h2>Number of letters in the file</h2>
                 <h2>Number of words in the file</h2>
                 <h2>Number of punctuation marks in the file</h2>
