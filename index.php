@@ -48,8 +48,51 @@
                 }
                 ?>
                 <h2>Number of punctuation marks in the file</h2>
+                <?php
+                if($text){
+                    $punctuation_counter = 0;
+                    for($i = 0; $i < strlen($text); $i++){
+                       if($text[$i] == '.' || $text[$i] == ',' || $text[$i] == ':' || $text[$i] == ';' || $text[$i] == '"' || $text[$i] == '(' || $text[$i] == ')' || $text[$i] == '?' || $text[$i] == '!' || $text[$i] == '-' || $text[$i] == "'"){
+                           $punctuation_counter++;
+                       }
+                    }
+                    echo $punctuation_counter;
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }
+                ?>
                 <h2>Number of sentences in the file</h2>
+                <?php
+                if($text){
+                    $sentences_counter = 0;
+                    for($i = 0; $i < count($words); $i++){
+                       if(preg_match('/[a-z]\./', $words[$i]) || preg_match('/[a-z]\?/', $words[$i]) || preg_match('/[a-z]\!/', $words[$i])){
+                           $sentences_counter++;
+                       }
+                    }
+                    echo $sentences_counter;
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }
+                ?>
                 <h2>Report on the use of letters A-Z</h2>
+                <?php
+                if($text){
+                    $letters = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z');
+                    $lower_text = strtolower($text);
+                    for($j = 0; $j < count($letters); $j++){
+                        $specific_letter_counter = 0;
+                        for($i = 0; $i < strlen($text); $i++){
+                            if($text[$i] == $letters[$j]){
+                                $specific_letter_counter++;
+                            }
+                        }
+                        echo $letters[$j] . " -> " . $specific_letter_counter . "<br>";
+                    }
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }
+                ?>
                 <!-- SAVE IN STATYSTYKI.TXT-->
             </div>
         </div>
