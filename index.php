@@ -48,6 +48,19 @@
                 }
                 ?>
                 <h2>Number of punctuation marks in the file</h2>
+				<?php
+                if($text){
+                    $punctuation_counter = 0;
+                    for($i = 0; $i < strlen($text); $i++){
+                       if($text[$i] == '.' || $text[$i] == ',' || $text[$i] == ':' || $text[$i] == ';' || $text[$i] == '"' || $text[$i] == '(' || $text[$i] == ')' || $text[$i] == '?' || $text[$i] == '!' || $text[$i] == '-' || $text[$i] == "'"){
+                           $punctuation_counter++;
+                       }
+                    }
+                    echo $punctuation_counter;
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }
+                ?>
                 <h2>Number of sentences in the file</h2>
                 <h2>Report on the use of letters A-Z</h2>
                 <!-- SAVE IN STATYSTYKI.TXT-->
