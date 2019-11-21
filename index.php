@@ -62,6 +62,19 @@
                 }
                 ?>
                 <h2>Number of sentences in the file</h2>
+				<?php
+                if($text){
+                    $sentences_counter = 0;
+                    for($i = 0; $i < count($words); $i++){
+                       if(preg_match('/[a-z]\./', $words[$i]) || preg_match('/[a-z]\?/', $words[$i]) || preg_match('/[a-z]\!/', $words[$i])){
+                           $sentences_counter++;
+                       }
+                    }
+                    echo $sentences_counter;
+                }else{
+                    echo "<p>Lack of file.</p>";
+                }
+                ?>
                 <h2>Report on the use of letters A-Z</h2>
                 <!-- SAVE IN STATYSTYKI.TXT-->
             </div>
