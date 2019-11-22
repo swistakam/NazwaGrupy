@@ -48,11 +48,7 @@
                 }
                 ?>
                 <h2>Number of punctuation marks in the file</h2>
-<<<<<<< HEAD
-				<?php
-=======
                 <?php
->>>>>>> 5b561c08b714980759146778d8393fa2b19aa297
                 if($text){
                     $punctuation_counter = 0;
                     for($i = 0; $i < strlen($text); $i++){
@@ -66,11 +62,7 @@
                 }
                 ?>
                 <h2>Number of sentences in the file</h2>
-<<<<<<< HEAD
 				<?php
-=======
-                <?php
->>>>>>> 5b561c08b714980759146778d8393fa2b19aa297
                 if($text){
                     $sentences_counter = 0;
                     for($i = 0; $i < count($words); $i++){
