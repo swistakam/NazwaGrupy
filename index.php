@@ -14,21 +14,19 @@
                 <h2>Choose your file</h2>
                 <form action="" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="link" placeholder="Enter link here"/>
+                        <input type="text" class="form-control" name="link" placeholder="Enter link here" <?php if(isset($_POST['link'])):?> value="<?php echo $_POST['link'];?>" <?php endif;?>/>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-               <?php if(!$_POST['link']):?>
-               <form action="" method="post">
+                    <?php if(isset($_POST['link'])):?>
                     <div class="form-group">
                         <input type="text" class="form-control" name="decision" placeholder="Yes/No"/>
                     </div>
+                  <?php endif;?>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Wyślij</button>
+                        <button type="submit" class="btn btn-primary" >Submit</button>
                     </div>
                 </form>
+
+
                 <?php if(isset($_POST['decision']) && strtolower($_POST['decision']) == 'yes'):?>
                 <h2>Content of file</h2>
                 <?php
@@ -119,7 +117,7 @@
                 fclose($file);
                 unlink("statystyki.txt");
                 ?>
-                <?php endif;?>
+
                <?php endif;?>
             </div>
         </div>
