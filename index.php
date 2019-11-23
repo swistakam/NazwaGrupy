@@ -73,7 +73,7 @@
                 if($text){
                     $punctuation_counter = 0;
                     for($i = 0; $i < strlen($text); $i++){
-                       if($text[$i] == '.' || $text[$i] == ',' || $text[$i] == ':' || $text[$i] == ';' || $text[$i] == '"' || $text[$i] == '(' || $text[$i] == ')' || $text[$i] == '?' || $text[$i] == '!' || $text[$i] == '-' || $text[$i] == "'"){
+                      if($text[$i] == '?' || $text[$i] == '.' ){
                            $punctuation_counter++;
                        }
                     }
