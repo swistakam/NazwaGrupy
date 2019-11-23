@@ -53,7 +53,12 @@
                 <?php
                 if($text){
                     $words = explode(' ', $text);
-                    $words_counter = count($words);
+                    $words_counter = 0;
+                    for($i = 0; $i<count($words); $i++){
+                      if(strlen($words[$i]) != 1){
+                        $words_counter++;
+                      }
+                    }
                     echo $words_counter;
                 }else{
                     echo "<p>Lack of file.</p>";
