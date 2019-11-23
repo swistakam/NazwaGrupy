@@ -86,8 +86,8 @@
 				<?php
                 if($text){
                     $sentences_counter = 0;
-                    for($i = 0; $i < count($words); $i++){
-                       if(preg_match('/[a-z]\./', $words[$i]) || preg_match('/[a-z]\?/', $words[$i]) || preg_match('/[a-z]\!/', $words[$i])){
+                    for($i = 1; $i < count($words); $i++){
+                       if(((preg_match('/[a-z]\./', $words[$i]) == (preg_match('/[a-z]\./', $words[$i-1]))|| ((preg_match('/[a-z]\?/', $words[$i]) == preg_match('/[a-z]\?/', $words[$i - 1])) || ((preg_match('/[a-z]\!/', $words[$i]) == (preg_match('/[a-z]\!/', $words[$i - 1])){
                            $sentences_counter++;
                        }
                     }
