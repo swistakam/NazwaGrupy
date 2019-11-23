@@ -11,11 +11,29 @@
         <div class="row-content">
            <div class="col-sm-4">
                 <h1>Project</h1>
-
+                <h2>Choose your file</h2>
+                <form action="" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="link" placeholder="Enter link here"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+               <?php if(!$_POST['link']):?>
+               <form action="" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="decision" placeholder="Yes/No"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Wyślij</button>
+                    </div>
+                </form>
+                <?php if(isset($_POST['decision']) && strtolower($_POST['decision']) == 'yes'):?>
                 <h2>Content of file</h2>
                 <?php
 
-                    $text = file_get_contents("https://s3.zylowski.net/public/input/4.txt?fbclid=IwAR1bA1GI3A8Qb12qWVo3ygfxm0gqaIhbhnKpkCEuxSYfFsGagcgR8n2CA4k");
+                    $text = file_get_contents($_POST['link']);
                     echo $text;
 
                 ?>
@@ -101,6 +119,8 @@
                 fclose($file);
                 unlink("statystyki.txt");
                 ?>
+                <?php endif;?>
+               <?php endif;?>
             </div>
         </div>
     </div>
