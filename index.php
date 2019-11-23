@@ -53,7 +53,12 @@
                 <?php
                 if($text){
                     $words = explode(' ', $text);
-                    $words_counter = count($words);
+                    $words_counter = 0;
+                    for($i = 0; $i<count($words); $i++){
+                      if(strlen($words[$i]) != 1){
+                        $words_counter++;
+                      }
+                    }
                     echo $words_counter;
                 }else{
                     echo "<p>Lack of file.</p>";
@@ -91,24 +96,38 @@
                     echo "<p>Lack of file.</p>";
                 }
                 ?>
-                <h2>Report on the use of letters A-Z</h2>
+                <h2>Report on the use of consonants and vowel</h2>
                 <?php
-                if($text){
-                    $letters = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z');
+				               if($text){
+                         $letters = array( 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'w', 'x', 'z');
+					             $specific_letter_counter = 0;
                     $lower_text = strtolower($text);
                     for($j = 0; $j < count($letters); $j++){
-                        $specific_letter_counter = 0;
+
                         for($i = 0; $i < strlen($text); $i++){
                             if($text[$i] == $letters[$j]){
                                 $specific_letter_counter++;
                             }
                         }
-                        echo $letters[$j] . " -> " . $specific_letter_counter . "<br>";
                     }
+                    echo  "consonants" ." -> " . $specific_letter_counter . "<br>";
+
+                    $letters = array( 'a', 'e', 'i', 'o', 'u', 'y');
+                  $specific_letter_counter = 0;
+               $lower_text = strtolower($text);
+               for($j = 0; $j < count($letters); $j++){
+
+                   for($i = 0; $i < strlen($text); $i++){
+                       if($text[$i] == $letters[$j]){
+                           $specific_letter_counter++;
+                       }
+                   }
+               }
+               echo  "vowel" ." -> " . $specific_letter_counter . "<br>";
                 }else{
                     echo "<p>Lack of file.</p>";
                 }
-                ?>
+	               ?>
                 <!-- SAVE IN STATYSTYKI.TXT-->
 				<?php
                 $file = fopen("statystyki.txt", 'w');
