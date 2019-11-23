@@ -98,7 +98,7 @@
                 $file = fopen("statystyki.txt", 'w');
                 fputs($file, "Number of letters in the file\n $letter_counter \nNumber of words in the file\n $words_counter \nNumber of punctuation marks in the file\n $punctuation_counter \nNumber of sentences in the file\n $sentences_counter\n");
                 //deleting file
-                fclose("statystyki.txt");
+                fclose($file);
                 unlink("statystyki.txt");
                 ?>
             </div>
