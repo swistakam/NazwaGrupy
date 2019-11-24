@@ -106,30 +106,30 @@
                 <?php
 				               if($text){
                          $letters = array( 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'w', 'x', 'z');
-					             $specific_letter_counter = 0;
+					             $specific_letter_counter_consonants = 0;
                     $lower_text = strtolower($text);
                     for($j = 0; $j < count($letters); $j++){
 
                         for($i = 0; $i < strlen($text); $i++){
                             if($text[$i] == $letters[$j]){
-                                $specific_letter_counter++;
+                                $specific_letter_counter_consonants++;
                             }
                         }
                     }
-                    echo  "consonants" ." -> " . $specific_letter_counter . "<br>";
+                    echo  "consonants" ." -> " . $specific_letter_counter_consonants . "<br>";
 
                     $letters = array( 'a', 'e', 'i', 'o', 'u', 'y');
-                  $specific_letter_counter = 0;
+                  $specific_letter_counter_vowel = 0;
                $lower_text = strtolower($text);
                for($j = 0; $j < count($letters); $j++){
 
                    for($i = 0; $i < strlen($text); $i++){
                        if($text[$i] == $letters[$j]){
-                           $specific_letter_counter++;
+                           $specific_letter_counter_vowel++;
                        }
                    }
                }
-               echo  "vowel" ." -> " . $specific_letter_counter . "<br>";
+               echo  "vowel" ." -> " . $specific_letter_counter_vowel . "<br>";
                 }else{
                     echo "<p>Lack of file.</p>";
                 }
@@ -137,7 +137,8 @@
                 <!-- SAVE IN STATYSTYKI.TXT-->
 				<?php
                 $file = fopen("statystyki.txt", 'w');
-                fputs($file, "Number of letters in the file\n $letter_counter \nNumber of words in the file\n $words_counter \nNumber of punctuation marks in the file\n $punctuation_counter \nNumber of sentences in the file\n $sentences_counter\n");
+                fputs($file, "Number of letters in the file\n $letter_counter \nNumber of words in the file\n $words_counter \nNumber of punctuation marks in the file\n $punctuation_counter \nNumber of sentences in the file\n $sentences_counter
+                \n Numbers of consonants in the file\n $$specific_letter_counter_consonants\nNumbers of vowels in the file\n$specific_letter_counter_vowel \n ");
                 //deleting file
                 fclose($file);
                 unlink("statystyki.txt");
