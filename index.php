@@ -86,8 +86,14 @@
 				<?php
                 if($text){
                     $sentences_counter = 0;
-                    for($i = 1; $i < count($words); $i++){
-                       if(((preg_match('/[a-z]\./', $words[$i]) == (preg_match('/[a-z]\./', $words[$i-1]))|| ((preg_match('/[a-z]\?/', $words[$i]) == preg_match('/[a-z]\?/', $words[$i - 1])) || ((preg_match('/[a-z]\!/', $words[$i]) == (preg_match('/[a-z]\!/', $words[$i - 1])){
+                    $sentences = array();
+                    for($i = 0; $i < count($words); $i++){
+                       if(preg_match('/[a-z]\./', $words[$i]) || preg_match('/[a-z]\?/', $words[$i]) || preg_match('/[a-z]\!/', $words[$i])){
+                           array_push($sentences, $words[$i]);
+                       }
+                    }
+                    for($i = 1; $i < count($sentences); $i++){
+                       if((preg_match('/[a-z]\./', $sentences[$i]) && preg_match('/[a-z]\./', $sentences[$i - 1])) || (preg_match('/[a-z]\?/', $sentences[$i]) && preg_match('/[a-z]\?/', $sentences[$i - 1])) || (preg_match('/[a-z]\!/', $sentences[$i]) && preg_match('/[a-z]\!/', $sentences[$i - 1]))){
                            $sentences_counter++;
                        }
                     }
